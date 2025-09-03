@@ -94,7 +94,9 @@ useEffect(() => {
   test();
 }, []);
 
-
+useEffect(()=> {
+  loadTrendingMovies();
+}, []);
 
 useEffect(()=>{
   fetchMovies(debouncedSearchTerm);
@@ -121,6 +123,7 @@ useEffect(()=>{
             {trendingMovies.map((movie,index) => (
               <li key={movie.$id}>
                   <p>{index+1}</p>
+                  <img src={movie.poster_url} alt={movie.title}/>
               </li>
             ))}
           </ul>
@@ -152,10 +155,5 @@ useEffect(()=>{
 
     </main>
   )
-
-
-useEffect(()=> {
-  loadTrendingMovies();
-}, []);
 }
 export default App
